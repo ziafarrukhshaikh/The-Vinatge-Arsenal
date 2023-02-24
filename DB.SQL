@@ -1,0 +1,92 @@
+CREATE TABLE Customer(
+	customer_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	firstname VARCHAR(20) NOT NULL,
+	lastname VARCHAR(20) NOT NULL,
+	email VARCHAR(25) NOT NULL,
+	phone VARCHAR(20) NOT NULL,
+rewardsNum VARCHAR(20) NOT NULL,
+	street VARCHAR(50) NOT NULL,
+	city VARCHAR(20) NOT NULL,
+	state VARCHAR(50) NOT NULL,
+	zipcode VARCHAR(10) NOT NULL
+	);
+
+    CREATE TABLE ProductType (
+	product_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	jersey VARCHAR(50) NOT NULL,
+	scarf VARCHAR(250) NOT NULL,
+    hat VARCHAR(250) NOT NULL,
+    bobblehead VARCHAR(50) NOT NULL,
+    posters VARCHAR(50) NOT NULL
+	);
+
+
+    CREATE TABLE Sale (
+	sale_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    product_id INT NOT NULL,
+    customer_id INT NOT NULL,
+	firstname VARCHAR(20) NOT NULL,
+	lastname VARCHAR(20) NOT NULL,
+    email VARCHAR(25) NOT NULL,
+	salePrice VARCHAR(50) NOT NULL,
+	deliveryFee VARCHAR(50) NOT NULL,
+	deliveryDate VARCHAR(250) NOT NULL,
+    FOREIGN KEY (product_id) REFERENCES ProductType(product_id) ON DELETE CASCADE ON UPDATE RESTRICT,
+    FOREIGN KEY (customer_id) REFERENCES Customer(customer_id) ON DELETE CASCADE ON UPDATE RESTRICT
+	);
+
+    INSERT INTO Sale(product_id, customer_id, firstname, lastname,email, salePrice, deliveryDate, deliveryFee) 
+        VALUES("1","001", "Zia", "Shaikh", "zshaikh1@depaul.edu", "$88", "18th Mar'23", "$10.99");
+
+
+    CREATE TABLE Review (
+	review_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    product_id INT NOT NULL,
+    customer_id INT NOT NULL,
+	submitdate DATE NOT NULL,
+	description  VARCHAR(500),
+	rating VARCHAR(10),
+	FOREIGN KEY (product_id) REFERENCES ProductType(product_id) ON DELETE CASCADE ON UPDATE RESTRICT,
+	FOREIGN KEY (customer_id) REFERENCES Customer(customer_id) ON DELETE CASCADE ON UPDATE RESTRICT
+	);
+    
+    CREATE TABLE Rewards  (
+    rewards_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    customer_id INT NOT NULL,
+	FOREIGN KEY (customer_id) REFERENCES Customer(customer_id) ON DELETE CASCADE ON UPDATE RESTRICT
+    );
+
+    
+ INSERT INTO Customer(firstname, lastname, email, phone, rewardsNum, street, city, state, zipcode)
+    VALUES ("Zia", "Shaikh", "zshaikh1@depaul.edu", "3128526445", "121989", "2545 N Sheffield Ave", "CHI", "IL", "60614");
+INSERT INTO Customer(firstname, lastname, email, phone, rewardsNum, street, city, state, zipcode)
+    VALUES ("Savar", "Sethi", "ssethi@depaul.edu", "123456789", "333666", "2332 W Seminary", "CHI", "IL", "60614");
+INSERT INTO Customer(firstname, lastname, email, phone, rewardsNum, street, city, state, zipcode)
+    VALUES ("Matt", "Nice", "mnice@depaul.edu", "111244622", "123456", "777 S State", "NYC", "NY", "11720");
+INSERT INTO Customer(firstname, lastname, email, phone, rewardsNum, street, city, state, zipcode)
+    VALUES ("Dan", "Sakelaris", "dgeorge@depaul.edu", "632771656", "999111", "6 Whippany Drive", "LA", "CA", "90210");
+INSERT INTO Customer(firstname, lastname, email, phone, rewardsNum, street, city, state, zipcode)
+    VALUES ("Yedidya", "Sol", "ysol3@depaul.edu", "5551293443", "444555", "14 Surrey Ct", "PHX", "AZ", "72199");
+
+
+INSERT INTO ProductType(jersey, scarf, hat, bobblehead, posters)
+    VALUES("Bruised Banana OG","Alexis Sanches LICHA", "COYG", "George Graham Clipboard", "Gunners4Ever");
+INSERT INTO ProductType(jersey, scarf, hat, bobblehead, posters)
+    VALUES("Retro Gold 02/03","Wenger", "ARSENAL", "Arsene Wenger", "Is yours gold?");
+INSERT INTO ProductType(jersey, scarf, hat, bobblehead, posters)
+    VALUES("SEGA Away Kit 00/01","MESUT OZIL!", "YaGunnersYa", "Mesut Ozil", "NLD is RED");
+INSERT INTO ProductType(jersey, scarf, hat, bobblehead, posters)
+    VALUES("20/21 Home Kit","Aubama WHO?", "SignDaTing", "14x FA Cup", "WE CHAMPIONS");
+INSERT INTO ProductType(jersey, scarf, hat, bobblehead, posters)
+    VALUES("All Black 22/23 Away","Bukayo Saka", "Little Chilli", "Starboy", "Signed.Sealed.Delivered");
+
+INSERT INTO Sale(product_id, customer_id, firstname, lastname,email, salePrice, deliveryDate, deliveryFee) 
+        VALUES("1","001", "Zia", "Shaikh", "zshaikh1@depaul.edu", "$88", "18th Mar'23", "$10.99");
+INSERT INTO Sale(product_id, customer_id, firstname, lastname,email, salePrice, deliveryDate, deliveryFee) 
+        VALUES("2","002", "Matt", "Nice", "mnice@depaul.edu", "$95", "23rd Mar'23", "$10.99");
+INSERT INTO Sale(product_id, customer_id, firstname, lastname,email, salePrice, deliveryDate, deliveryFee) 
+        VALUES("3","003", "Yedidya", "Sol", "ysol3@depaul.edu", "$125", "1st Apr'23", "$10.99");
+INSERT INTO Sale(product_id, customer_id, firstname, lastname,email, salePrice, deliveryDate, deliveryFee) 
+        VALUES("4","004", "Savar", "Sethi", "ssethi@depaul.edu", "$66", "10th Jun'23", "$10.99");
+INSERT INTO Sale(product_id, customer_id, firstname, lastname,email, salePrice, deliveryDate, deliveryFee) 
+        VALUES("5","005", "Daniel", "Sakelaris", "dgeorge@depaul.edu", "$75", "14th Aug'23", "$10.99");
