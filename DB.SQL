@@ -35,9 +35,6 @@ rewardsNum VARCHAR(20) NOT NULL,
     FOREIGN KEY (customer_id) REFERENCES Customer(customer_id) ON DELETE CASCADE ON UPDATE RESTRICT
 	);
 
-    INSERT INTO Sale(product_id, customer_id, firstname, lastname,email, salePrice, deliveryDate, deliveryFee) 
-        VALUES("1","001", "Zia", "Shaikh", "zshaikh1@depaul.edu", "$88", "18th Mar'23", "$10.99");
-
 
     CREATE TABLE Review (
 	review_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -50,6 +47,7 @@ rewardsNum VARCHAR(20) NOT NULL,
 	FOREIGN KEY (customer_id) REFERENCES Customer(customer_id) ON DELETE CASCADE ON UPDATE RESTRICT
 	);
     
+
     CREATE TABLE Rewards  (
     rewards_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     customer_id INT NOT NULL,
@@ -90,3 +88,18 @@ INSERT INTO Sale(product_id, customer_id, firstname, lastname,email, salePrice, 
         VALUES("4","004", "Savar", "Sethi", "ssethi@depaul.edu", "$66", "10th Jun'23", "$10.99");
 INSERT INTO Sale(product_id, customer_id, firstname, lastname,email, salePrice, deliveryDate, deliveryFee) 
         VALUES("5","005", "Daniel", "Sakelaris", "dgeorge@depaul.edu", "$75", "14th Aug'23", "$10.99");
+
+
+INSERT INTO Review( product_id, customer_id, submitdate, description, rating) 
+        VALUES(1, 1, "2023-1-11", "Jersey","5");
+INSERT INTO Review(review_id, product_id, customer_id, submitdate, description, rating) 
+        VALUES(2, 2, "2023-2-9", "Scarf","4");
+INSERT INTO Review(review_id, product_id, customer_id, submitdate, description, rating) 
+        VALUES(3, 3, "2023-11-11", "Bobblehead","4");
+INSERT INTO Review(re5view_id, product_id, customer_id, submitdate, description, rating) 
+        VALUES(4, 4, "2023-1-11", "Jersey","5");
+INSERT INTO Review(review_id, product_id, customer_id, submitdate, description, rating) 
+        VALUES(5, 5, "2023-1-11", "Jersey","5");
+
+
+INSERT INTO Rewards(rewards_id, customer_id) VALUES ("123","999");

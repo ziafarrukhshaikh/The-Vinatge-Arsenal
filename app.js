@@ -4,6 +4,27 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var layouts = require('express-ejs-layouts');
+var dotenv = require('dotenv');
+dotenv.config();
+
+const mariadb = require('mariadb/callback');
+const db = mariadb.createConnection({host: process.env.DB_HOST,
+user: process.env.DB_USER,
+password: process.env.DB_PASSWORD,
+database: process.env.DB_DATABASE,
+port: process.env.DB_PORT});
+
+// connect to database
+db.connect((err) => {
+if (err) {
+console.log("Unable to connect to database due to error: " + err);
+} 
+else {
+console.log("Connected to DB");
+    }
+});
+global.db = db;
+
 
 
 var indexRouter = require('./routes/index');
@@ -12,6 +33,11 @@ var aboutRouter = require('./routes/about');
 var contactRouter = require('./routes/contact');
 var privacyRouter = require('./routes/privacy');
 var helpRouter = require('./routes/help');
+var CustomerRouter = require('./routes/Customer');
+var ProductTypeRouter = require('./routes/ProductType');
+var SaleRouter = require('./routes/Sale');
+var RewardsRouter = require('./routes/Rewards');
+var ReviewRouter = require('./routes/Review');
 
 
 var app = express();
@@ -33,6 +59,11 @@ app.use('/about', aboutRouter);
 app.use('/contact', contactRouter);
 app.use('/privacy', privacyRouter);
 app.use('/help', helpRouter);
+app.use('/Customer', CustomerRouter);
+app.use('/ProductType', ProductTypeRouter);
+app.use('/Sale', SaleRouter);
+app.use('/Rewards', RewardsRouter);
+app.use('/Review', ReviewRouter);
 
 
 
