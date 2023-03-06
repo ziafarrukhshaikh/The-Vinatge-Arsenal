@@ -1,0 +1,16 @@
+<h1> Edit</h1>
+<form action="/Sale/save" method="post">
+    <input type="hidden" name="sale_id" value="<%= onerec.sale_id %>" >
+<table>
+    <tr> <td> Sale ID: </td> <td> <input type="number" name="sale_id" value="<%= onerec.sale_id %>" required> </td> </tr>
+    <tr> <td> Product ID: </td> <td> <input type="number" name="product_id" value="<%= onerec.product_id %>" required> </td> </tr>
+    <tr> <td> Customer ID: </td> <td> <input type="number" name="cusomer_id" value="<%= onerec.customer_id %>" required> </td> </tr>
+    <tr> <td> First Name: </td> <td> <input type="text" name="firstname" value="<%= onerec.firstname %>" required> </td> </tr>
+    <tr> <td> Last Name: </td> <td> <input type="text" name="lastname" value="<%= onerec.lastname %>" required> </td> </tr>
+    <tr> <td> Email: </td> <td> <input type="text" name="email" value="<%= onerec.email %>" required> </td> </tr>
+    <tr> <td> Sale Price: </td> <td> <input type="text" name="salePrice" value="<%= onerec.salePrice %>" required> </td> </tr>
+    <tr> <td> Delivery Fee: </td> <td> <input type="text" name="deliveryFee" value="<%= onerec.deliveryFee %>" required> </td> </tr>
+    <tr> <td> Delivery Date: </td> <td> <input type="text" name="deliveryDate" value="<%= onerec.deliveryDate %>" required> </td> </tr>
+</table>
+<button type="submit">Save</button>
+</form>
