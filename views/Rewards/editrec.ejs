@@ -1,0 +1,9 @@
+<h1> Edit</h1>
+<form action="/Rewards/save" method="post">
+    <input type="hidden" name="rewards_id" value="<%= onerec.rewards_id %>" >
+<table>
+    <tr> <td> Rewards ID: </td> <td> <input type="number" name="rewards_id" value="<%= onerec.rewards_id %>" required> </td> </tr>
+    <tr> <td> Customer ID: </td> <td> <input type="number" name="cusomer_id" value="<%= onerec.customer_id %>" required> </td> </tr>
+  </table>
+<button type="submit">Save</button>
+</form>

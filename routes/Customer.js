@@ -22,7 +22,7 @@ db.query(query, (err, result) => {
 // Route to view one specific record. Notice the view is one record
 // ==================================================
 router.get('/:recordid/show', function(req, res, next) {
-    let query = "SELECT customer_id, firstname, lastname, email, phone, rewardsNum, street, city, zipcode, state, zipcode FROM Customer WHERE customer_id = " + req.params.recordid;
+    let query = "SELECT customer_id, firstname, lastname, email, phone, rewardsNum, street, city, state, zipcode FROM Customer WHERE customer_id = " + req.params.recordid;
 
     // execute query
     db.query(query, (err, result) => {

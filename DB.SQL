@@ -79,15 +79,15 @@ INSERT INTO ProductType(jersey, scarf, hat, bobblehead, posters)
     VALUES("All Black 22/23 Away","Bukayo Saka", "Little Chilli", "Starboy", "Signed.Sealed.Delivered");
 
 INSERT INTO Sale(product_id, customer_id, firstname, lastname,email, salePrice, deliveryDate, deliveryFee) 
-        VALUES("1","001", "Zia", "Shaikh", "zshaikh1@depaul.edu", "$88", "18th Mar'23", "$10.99");
+        VALUES(1,1, "Zia", "Shaikh", "zshaikh1@depaul.edu", "$88", "18th Mar'23", "$10.99");
 INSERT INTO Sale(product_id, customer_id, firstname, lastname,email, salePrice, deliveryDate, deliveryFee) 
-        VALUES("2","002", "Matt", "Nice", "mnice@depaul.edu", "$95", "23rd Mar'23", "$10.99");
+        VALUES(2,2, "Matt", "Nice", "mnice@depaul.edu", "$95", "23rd Mar'23", "$10.99");
 INSERT INTO Sale(product_id, customer_id, firstname, lastname,email, salePrice, deliveryDate, deliveryFee) 
-        VALUES("3","003", "Yedidya", "Sol", "ysol3@depaul.edu", "$125", "1st Apr'23", "$10.99");
+        VALUES(3,3, "Yedidya", "Sol", "ysol3@depaul.edu", "$125", "1st Apr'23", "$10.99");
 INSERT INTO Sale(product_id, customer_id, firstname, lastname,email, salePrice, deliveryDate, deliveryFee) 
-        VALUES("4","004", "Savar", "Sethi", "ssethi@depaul.edu", "$66", "10th Jun'23", "$10.99");
+        VALUES(4,4, "Savar", "Sethi", "ssethi@depaul.edu", "$66", "10th Jun'23", "$10.99");
 INSERT INTO Sale(product_id, customer_id, firstname, lastname,email, salePrice, deliveryDate, deliveryFee) 
-        VALUES("5","005", "Daniel", "Sakelaris", "dgeorge@depaul.edu", "$75", "14th Aug'23", "$10.99");
+        VALUES(5,5, "Daniel", "Sakelaris", "dgeorge@depaul.edu", "$75", "14th Aug'23", "$10.99");
 
 
 INSERT INTO Review( product_id, customer_id, submitdate, description, rating) 
@@ -102,4 +102,8 @@ INSERT INTO Review(review_id, product_id, customer_id, submitdate, description, 
         VALUES(5, 5, "2023-1-11", "Jersey","5");
 
 
-INSERT INTO Rewards(rewards_id, customer_id) VALUES ("123","999");
+INSERT INTO Rewards(customer_id) VALUES (1);
+INSERT INTO Rewards(customer_id) VALUES (2);
+INSERT INTO Rewards(customer_id) VALUES (3);
+INSERT INTO Rewards(customer_id) VALUES (4);
+INSERT INTO Rewards(customer_id) VALUES (5);
