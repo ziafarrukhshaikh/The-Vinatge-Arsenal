@@ -54,6 +54,17 @@ rewardsNum VARCHAR(20) NOT NULL,
 	FOREIGN KEY (customer_id) REFERENCES Customer(customer_id) ON DELETE CASCADE ON UPDATE RESTRICT
     );
 
+    CREATE TABLE promotion (
+    promotion_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    promotitle VARCHAR(50) NOT NULL,
+    promoimage VARCHAR(20) NOT NULL,
+    description VARCHAR(200) NOT NULL,
+    startdate DATE NOT NULL,
+    enddate DATE NOT NULL,
+    discountrate DECIMAL(5,2)
+    );
+
+
     
  INSERT INTO Customer(firstname, lastname, email, phone, rewardsNum, street, city, state, zipcode)
     VALUES ("Zia", "Shaikh", "zshaikh1@depaul.edu", "3128526445", "121989", "2545 N Sheffield Ave", "CHI", "IL", "60614");
@@ -107,3 +118,12 @@ INSERT INTO Rewards(customer_id) VALUES (2);
 INSERT INTO Rewards(customer_id) VALUES (3);
 INSERT INTO Rewards(customer_id) VALUES (4);
 INSERT INTO Rewards(customer_id) VALUES (5);
+
+INSERT INTO promotion (promotitle, promoimage, description, startdate, enddate, discountrate) 
+    VALUES ('Promo 1','promo1.png','Promo 1 Description', "2023-01-01","2023-01-31",0.10);
+INSERT INTO promotion (promotitle, promoimage, description, startdate, enddate, discountrate) 
+    VALUES ('Promo 2','promo2.png','Promo 2 Description', "2023-01-01","2023-01-25",0.15);
+INSERT INTO promotion (promotitle, promoimage, description, startdate, enddate, discountrate) 
+    VALUES ('Promo 3','promo3.png','Season Ticket Holders Amazing Annual Deal', "2023-01-01","2023-12-31",0.45);
+INSERT INTO promotion (promotitle, promoimage, description, startdate, enddate, discountrate) 
+    VALUES ('Promo 4','promo4.png','Arsenal 175 Year Sale', "2023-01-01","2023-05-25",0.55);

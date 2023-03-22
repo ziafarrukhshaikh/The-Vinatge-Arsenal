@@ -6,7 +6,7 @@ var router = express.Router();
 // ==================================================
 
 router.get('/', function(req, res, next) {
-    let query = "SELECT rewards_id, customer_id status FROM Rewards";
+    let query = "SELECT rewards_id, customer_id FROM Rewards";
     
 // execute query
 db.query(query, (err, result) => {

@@ -1,6 +1,34 @@
     <p>Welcome to The Vintage Arsenal</p>
-    <p> Zia Farrukh Shaikh</p>
-    <p> Date: <%= date_value %> </p>
+    <table width="100%"><tr>
+        <td width="80%">
+
+    <% if (allrecs.length > 0) {%>
+        <% allrecs.forEach((recref, index) => { %>
+        <product>
+       <table>
+       <tr> <td><%= recref.product_id %></td>
+       <tr> <td colspan="2"><%= recref.jersey %></td></tr>
+       <tr> <td colspan="2"><%= recref.scarf %></td></tr>
+       <tr> <td><%= recref.hate %></td>
+       <tr> <td><%= recref.bobblehead %></td>
+       <tr> <td><%= recref.posters %></td>
+       <td><a href='/ProductType/<%= recref.product_id %>/show'>Details</a></td></tr>
+       </table>
+        </product>
+        <% }); %>
+       <% } %> 
+    </td>
+
+    <td width="30%">
+        <% if (promos.length > 0) {%>
+            <% promos.forEach((recref, index) => { %>
+                    <img src="/images/<%= recref.promoimage %>" height="200">
+            <% }); %>
+         <% } %>
+
+    </td>
+
+    </tr></table>
 
     <im src="/public/images/Arsenal.jpg">
 
