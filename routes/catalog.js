@@ -1,7 +1,7 @@
 // ==================================================
 // Route to list all products on the catalog
 // ==================================================
-router.get('/', function(req, res, next) {
+router.get ('/', function(req, res, next) {
     let query = "SELECT product_id, jersey, scarf, hat, bobblehead, posters, homepage FROM ProductType";
     // execute query
     db.query(query, (err, result) => {

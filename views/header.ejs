@@ -28,3 +28,11 @@
     <li> <a href="/Rewards">Rewards</a> </li>
     <li> <a href="/report">Reports</a> </li>
     </ul>
+
+    <% if(session.customer_id > 0) { %>
+        <b> Hello <b> <%= session.custname %>! </b> </br>
+        <a href='/customer/logout'>Logout</a>
+        <% } else { %>
+        <a href='/customer/register'>New Customer</a> </br>
+        <a href='/customer/login'>Login</a>
+        <% } %>
