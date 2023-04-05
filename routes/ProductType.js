@@ -6,7 +6,7 @@ var router = express.Router();
 // ==================================================
 
 router.get('/', function(req, res, next) {
-    let query = "SELECT product_id, jersey, scarf, hat, bobblehead, posters, homepage FROM ProductType";
+    let query = "SELECT product_id, jersey, scarf, hat, bobblehead, posters, price, homepage FROM ProductType";
     
 // execute query
 db.query(query, (err, result) => {
@@ -22,7 +22,7 @@ db.query(query, (err, result) => {
 // Route to view one specific record. Notice the view is one record
 // ==================================================
 router.get('/:recordid/show', function(req, res, next) {
-    let query = "SELECT product_id, jersey, scarf, hat, bobblehead, posters, homepage FROM ProductType WHERE product_id = " + req.params.recordid;
+    let query = "SELECT product_id, jersey, scarf, hat, bobblehead, posters, price, homepage FROM ProductType WHERE product_id = " + req.params.recordid;
 
     // execute query
     db.query(query, (err, result) => {
@@ -47,7 +47,7 @@ router.get('/addrecord', function(req, res, next) {
 // Route to obtain user input and save in database.
 // ==================================================
 router.post('/', function(req, res, next) {
-    let insertquery = "INSERT INTO ProductType (product_id, jersey, scarf, hat, bobblehead, posters, homepage) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    let insertquery = "INSERT INTO ProductType (product_id, jersey, scarf, hat, bobblehead, posters,price, homepage) VALUES (?, ?, ?, ?, ?, ?,?, ?)";
 
     var homepage_value=0;
     if (req.body.homepage)
@@ -56,7 +56,7 @@ router.post('/', function(req, res, next) {
     }
 
      db.query(insertquery,[req.body.product_id, req.body.jersey, req.body.scarf,
-    req.body.hat, req.body.bobblehead, req.body.posters, homepage_value],(err, result) => {
+    req.body.hat, req.body.bobblehead, req.body.posters,req.body.price, homepage_value],(err, result) => {
     if (err) {
          console.log(err);
          res.render('error');
@@ -71,7 +71,7 @@ router.post('/', function(req, res, next) {
 // Route to edit one specific record.
 // ==================================================
 router.get('/:recordid/edit', function(req, res, next) {
-    let query = "SELECT product_id, jersey, scarf, hat, bobblehead, postser, homepage FROM ProductType WHERE product_id = " + req.params.recordid;
+    let query = "SELECT product_id, jersey, scarf, hat, bobblehead, postser,price, homepage FROM ProductType WHERE product_id = " + req.params.recordid;
     // execute query
     db.query(query, (err, result) => {
     if (err) {
@@ -88,7 +88,7 @@ router.get('/:recordid/edit', function(req, res, next) {
 // Route to save edited data in database.
 // ==================================================
 router.post('/save', function(req, res, next) {
-    let updatequery = "UPDATE ProductType SET product_id = ?, jersey = ?, scarf = ?, hat = ?, bobblehead = ?, posters = ?, homepage = ? WHERE product_id = " + req.body.product_id;
+    let updatequery = "UPDATE ProductType SET product_id = ?, jersey = ?, scarf = ?, hat = ?, bobblehead = ?, posters = ?, price = ?, homepage = ? WHERE product_id = " + req.body.product_id;
         
     var homepage_value=0;
     if (req.body.homepage)
@@ -98,7 +98,7 @@ router.post('/save', function(req, res, next) {
 
 
     db.query(updatequery,[req.body.product_id, req.body.jersey, req.body.scarf,
-         req.body.hat, req.body.bobblehead, req.body.posters, homepage_value],(err, result) => {
+         req.body.hat, req.body.bobblehead, req.body.posters, req.body.price, homepage_value],(err, result) => {
     if (err) {
         console.log(err);
         res.render('error');
@@ -146,7 +146,7 @@ router.get('/addrecord', function(req, res, next) {
 // URL: http://localhost:3002/automobile/99/edit
 // ==================================================
 router.get('/:recordid/edit', function(req, res, next) {
-    let query = "SELECT product_id, jersey, scarf, hat, bobblehead, posters, homepage FROM ProductType WHERE product_id = " + req.params.recordid;
+    let query = "SELECT product_id, jersey, scarf, hat, bobblehead, posters,price, homepage FROM ProductType WHERE product_id = " + req.params.recordid;
     // execute query
     db.query(query, (err, result) => {
      if (err) {
@@ -165,10 +165,6 @@ router.get('/:recordid/edit', function(req, res, next) {
             }
          });
     });
-
-
-
-
 
 
 module.exports = router; 

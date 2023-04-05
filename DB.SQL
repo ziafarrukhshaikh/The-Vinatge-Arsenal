@@ -89,6 +89,10 @@ INSERT INTO ProductType(jersey, scarf, hat, bobblehead, posters)
 INSERT INTO ProductType(jersey, scarf, hat, bobblehead, posters)
     VALUES("All Black 22/23 Away","Bukayo Saka", "Little Chilli", "Starboy", "Signed.Sealed.Delivered");
 
+/* SAYS field "JERSEY" does not have a default value
+INSERT INTO ProductType (price) VALUES ('80.0'), ('25.99'), ('12.99'), ('30.59'), ('45.99');
+*/
+
 INSERT INTO Sale(product_id, customer_id, firstname, lastname,email, salePrice, deliveryDate, deliveryFee) 
         VALUES(1,1, "Zia", "Shaikh", "zshaikh1@depaul.edu", "$88", "18th Mar'23", "$10.99");
 INSERT INTO Sale(product_id, customer_id, firstname, lastname,email, salePrice, deliveryDate, deliveryFee) 

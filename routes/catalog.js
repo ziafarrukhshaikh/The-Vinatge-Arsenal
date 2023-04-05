@@ -5,7 +5,7 @@ var router = express.Router();
 // Route to list all products on the catalog
 // ==================================================
 router.get ('/', function(req, res, next) {
-    let query = "SELECT product_id, jersey, scarf, hat, bobblehead, posters, homepage FROM ProductType";
+    let query = "SELECT product_id, jersey, scarf, hat, bobblehead, posters, price FROM ProductType";
     // execute query
     db.query(query, (err, result) => {
         if (err) {
@@ -68,7 +68,7 @@ router.get('/cart', function(req, res, next) {
     if (!Array.isArray(req.session.cart) || !req.session.cart.length){
           res.render('cart', {cartitems: 0 });
   } else {
-          let query = "SELECT produdct_id, jersey, scarf, hat,bobblehead, posters FROM ProductType WHERE product_id IN (" + req.session.cart + ") order by find_in_set(product_id, '" + req.session.cart + "');";
+          let query = "SELECT product_id, jersey, scarf, hat,bobblehead, posters,price FROM ProductType WHERE product_id IN (" + req.session.cart + ") order by find_in_set(product_id, '" + req.session.cart + "');";
         // execute query
         db.query(query, (err, result) => {
                 if (err) {res.render('error');} else

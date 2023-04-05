@@ -1,23 +1,51 @@
 <% if (allrecs.length > 0) {%>
     <% allrecs.forEach((recref, index) => { %>
+
+        <style>
+                table {
+                  width: 100%;
+                  font-size: 16px;
+                }
+              </style>
+
     <product>
              <form action="/catalog/add" method="post" >
                 <input type="hidden" name="product_id" value=<%= recref.product_id %> >
-    <table>
-    <tr>
-    <td><%= recref.jersey %></td>
-    <td><%= recref.scarf %></td>
-    <tr><td><%= recref.hat %></td> 
-    <td><%= recref.bobblehead %></td>
-    <tr><td><%= recref.posters %></td>
-    </tr>
-        <td><a href='/ProductType/<%= recref.product_id %>/show'>Details</a></td>
-    </tr>
-            <tr>
-                    <td>Quantity: <input type="number" name="qty" required></td>
-                    <td><button type="submit">Add to Cart</button></td>
-            </tr>
-    </table>
+                <table>
+                        <tr>
+                          <th>Jersey</th>
+                          <td><%= recref.jersey %></td>
+                        </tr>
+                        <tr>
+                          <th>Scarf</th>
+                          <td><%= recref.scarf %></td>
+                        </tr>
+                        <tr>
+                          <th>Hat</th>
+                          <td><%= recref.hat %></td>
+                        </tr>
+                        <tr>
+                          <th>Bobblehead</th>
+                          <td><%= recref.bobblehead %></td>
+                        </tr>
+                        <tr>
+                          <th>Posters</th>
+                          <td><%= recref.posters %></td>
+                        </tr>
+                        <tr>
+                          <td colspan="2">
+                            <a href='/ProductType/<%= recref.product_id %>/show'>Details</a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Quantity:</td>
+                          <td>
+                            <input type="number" name="qty" required>
+                            <button type="submit">Add to Cart</button>
+                          </td>
+                        </tr>
+                      </table>
+                      
             </form>
      </product>
         <% }); %>

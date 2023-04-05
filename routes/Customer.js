@@ -7,7 +7,7 @@ var bcrypt = require('bcryptjs');
 // ==================================================
 
 router.get('/', function(req, res, next) {
-    let query = "SELECT customer_id, firstname, lastname, email, phone, rewardsNum, street, city, state, zipcode FROM Customer";
+    let query = "SELECT customer_id, firstname, lastname, email, phone, street, city, state, zipcode FROM Customer";
     
 // execute query
 db.query(query, (err, result) => {
@@ -23,7 +23,7 @@ db.query(query, (err, result) => {
 // Route to view one specific record. Notice the view is one record
 // ==================================================
 router.get('/:recordid/show', function(req, res, next) {
-    let query = "SELECT customer_id, firstname, lastname, email, phone, rewardsNum, street, city, state, zipcode FROM Customer WHERE customer_id = " + req.params.recordid;
+    let query = "SELECT customer_id, firstname, lastname, email, phone, street, city, state, zipcode FROM Customer WHERE customer_id = " + req.params.recordid;
 
     // execute query
     db.query(query, (err, result) => {
@@ -48,7 +48,7 @@ router.get('/addrecord', function(req, res, next) {
 // Route to obtain user input and save in database.
 // ==================================================
 router.post('/', function(req, res, next) {
-    let insertquery = "INSERT INTO Customer (customer_id, firstname, lastname, email, phone, street, city, state, zipcode) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    let insertquery = "INSERT INTO Customer (customer_id, firstname, lastname, email, phone, street, city, state, zipcode,username, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     
     bcrypt.genSalt(10, (err, salt) => { 
         bcrypt.hash(req.body.password, salt, (err, hash) => {
@@ -56,7 +56,7 @@ router.post('/', function(req, res, next) {
 
      db.query(insertquery,[req.body.customer_id, req.body.firstname, req.body.lastname,
     req.body.email, req.body.phone, req.body.street, req.body.city, req.body.state,
-    req.body.zipcode,hash],(err, result) => {
+    req.body.zipcode, req.body.username,hash],(err, result) => {
     if (err) {
          console.log(err);
          res.render('error');
@@ -73,7 +73,7 @@ router.post('/', function(req, res, next) {
 // Route to edit one specific record.
 // ==================================================
 router.get('/:recordid/edit', function(req, res, next) {
-    let query = "SELECT customer_id, firstname, lastname, email, phone, rewardsNum, street, city, zipcode, state, zipcode FROM Customer WHERE customer_id = " + req.params.recordid;
+    let query = "SELECT customer_id, firstname, lastname, email, phone, street, city, zipcode, state, zipcode FROM Customer WHERE customer_id = " + req.params.recordid;
     // execute query
     db.query(query, (err, result) => {
     if (err) {
