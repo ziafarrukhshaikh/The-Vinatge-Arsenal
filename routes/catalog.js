@@ -1,3 +1,6 @@
+var express = require('express');
+var router = express.Router();
+
 // ==================================================
 // Route to list all products on the catalog
 // ==================================================
@@ -112,4 +115,4 @@ router.get('/checkout', function(req, res, next) {
              }
     });
 
- //module.exports = router; // I am getting this erro
+ module.exports = router; 

@@ -11,3 +11,18 @@
 </table>
 <button type="Submit">Save</button>
 </form>
+
+<tr>
+    <td> Category ID: </td>
+    <td> <select name="category_id" required>
+        <optgroup label="Select Category">
+            <% for (var i = 0; i < category.length; i++) { %>
+                <option value=<%= category[i].category_id %>>
+                <%= category[i].categoryname %> </option>
+            <% } %>
+        </optgroup>
+     </select>
+     </td>
+ </tr>
+
+ <b>Price: <%= Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(recref.saleprice) %> </b> <br/>

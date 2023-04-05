@@ -126,5 +126,49 @@ router.get('/:recordid/delete', function(req, res, next) {
      });
  });
 
+// ==================================================
+// Route to show empty form to obtain input form end-user.
+// ==================================================
+router.get('/addrecord', function(req, res, next) {
+    let query = "SELECT category_id, categoryname FROM category";
+    // execute query
+    db.query(query, (err, result) => {
+    if (err) {
+        console.log(err);
+        res.render('error');
+        }
+    res.render('ProductType/addrec', {category: result});
+        });
+    });
+
+// ==================================================
+// Route to edit one specific record.
+// URL: http://localhost:3002/automobile/99/edit
+// ==================================================
+router.get('/:recordid/edit', function(req, res, next) {
+    let query = "SELECT product_id, jersey, scarf, hat, bobblehead, posters, homepage FROM ProductType WHERE product_id = " + req.params.recordid;
+    // execute query
+    db.query(query, (err, result) => {
+     if (err) {
+         console.log(err);
+         res.render('error');
+        } else {
+    let query = "SELECT category_id, categoryname FROM category";
+    // execute query
+    db.query(query, (err, catss) => {
+        if (err) {
+        console.log(err);
+        res.render('error');
+     }
+    res.render('ProductType/editrec', {onerec: result[0], category: cats});
+                });
+            }
+         });
+    });
+
+
+
+
+
 
 module.exports = router; 

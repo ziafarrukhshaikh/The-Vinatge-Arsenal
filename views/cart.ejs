@@ -29,7 +29,7 @@
         <% totprice = totprice + lineitemcost %>
         <td>
             <form action="/catalog/remove" method="post" >
-                <input type="hidden" name="product_id" value=<%= item.auto_id %> >
+                <input type="hidden" name="product_id" value=<%= item.product_id %> >
                 <button type="submit">Remove</button>
             </form>
         </td>

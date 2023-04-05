@@ -12,3 +12,18 @@
 </table>
 <button type="submit">Save</button>
 </form>
+
+<tr>
+    <td> Category ID: </td>
+    <td> <select name="category_id" required>
+    <% for (var i = 0; i < category.length; i++) { %>
+    <% if (category[i].category_id == onerec.category_id) { %>
+    <option selected value=<%= category[i].category_id %>>
+    <%= category[i].categoryname %></option>
+    <% } else { %>
+    <option value=<%= category[i].category_id %>>
+    <%= category[i].categoryname %></option>
+    <% } }%>
+    </select>
+    </td>
+</tr>

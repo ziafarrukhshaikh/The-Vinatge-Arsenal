@@ -6,6 +6,7 @@ var logger = require('morgan');
 var layouts = require('express-ejs-layouts');
 var dotenv = require('dotenv');
 dotenv.config();
+const session = require('express-session');
 
 const mariadb = require('mariadb/callback');
 const db = mariadb.createConnection({host: process.env.DB_HOST,
@@ -48,6 +49,13 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.use(session({secret: 'TheVintageArsenal'}));
+app.use(function(req,res,next){
+res.locals.session = req.session;
+next();
+});
+
+
 
 app.use(logger('dev'));
 app.use(express.json());
