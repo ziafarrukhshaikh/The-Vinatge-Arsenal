@@ -2,28 +2,14 @@
 <form action="/ProductType/save" method="post">
     <input type="hidden" name="product_id" value="<%= onerec.product_id %>" >
 <table>
-    <tr> <td> Product ID: </td> <td> <input type="number" name="product_id" value="<%= onerec.product_id %>" required> </td> </tr>
     <tr> <td> Jersey: </td> <td> <input type="text" name="jersey" value="<%= onerec.jersey %>" required> </td> </tr>
     <tr> <td> Scarf: </td> <td> <input type="text" name="scarf" value="<%= onerec.scarf %>" required> </td> </tr>
     <tr> <td> Hat: </td> <td> <input type="text" name="hat" value="<%= onerec.hat %>" required> </td> </tr>
     <tr> <td> Bobblehead: </td> <td> <input type="text" name="bobblehead" value="<%= onerec.bobblehead %>" required> </td> </tr>
     <tr> <td> Posters: </td> <td> <input type="text" name="posters" value="<%= onerec.posters %>" required> </td> </tr>
-    <tr> <td> Homepage?: </td> <td> <input type="checkbox" name="homepage" > </td> </tr>   
+    <tr> <td> Homepage?: </td> <td> <input type="checkbox" name="homepage" > </td> </tr>
+    <tr> <td> Price: </td> <td> <input type="text" name="price" value="<%= onerec.price %>" required > </td> </tr>   
 </table>
 <button type="submit">Save</button>
 </form>
 
-<tr>
-    <td> Category ID: </td>
-    <td> <select name="category_id" required>
-    <% for (var i = 0; i < category.length; i++) { %>
-    <% if (category[i].category_id == onerec.category_id) { %>
-    <option selected value=<%= category[i].category_id %>>
-    <%= category[i].categoryname %></option>
-    <% } else { %>
-    <option value=<%= category[i].category_id %>>
-    <%= category[i].categoryname %></option>
-    <% } }%>
-    </select>
-    </td>
-</tr>

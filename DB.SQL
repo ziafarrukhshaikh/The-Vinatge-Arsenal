@@ -4,7 +4,7 @@ CREATE TABLE Customer(
 	lastname VARCHAR(20) NOT NULL,
 	email VARCHAR(25) NOT NULL,
 	phone VARCHAR(20) NOT NULL,
-rewardsNum VARCHAR(20) NOT NULL,
+    rewardsNum VARCHAR(20) NOT NULL,
 	street VARCHAR(50) NOT NULL,
 	city VARCHAR(20) NOT NULL,
 	state VARCHAR(50) NOT NULL,
@@ -47,7 +47,6 @@ rewardsNum VARCHAR(20) NOT NULL,
 	FOREIGN KEY (customer_id) REFERENCES Customer(customer_id) ON DELETE CASCADE ON UPDATE RESTRICT
 	);
     
-
     CREATE TABLE Rewards  (
     rewards_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     customer_id INT NOT NULL,

@@ -8,6 +8,7 @@
             <th>Bobblehead</th>
             <th>Posters</th>
             <th>Homepage</th>
+            <th>Price</th>
         </tr>
     <% allrecs.forEach((recref, index) => { %>
         <tr>
@@ -17,7 +18,8 @@
         <td><%= recref.hat %></td>
         <td><%= recref.bobblehead %></td>
         <td><%= recref.posters %></td>
-        <td><%= recref.Homepage %></td>
+        <td><%= recref.homepage %></td>
+        <td><%= recref.price %></td>
         <td><a href='/ProductType/<%= recref.product_id %>/show'> Details</a></td>
         <td><a href='/ProductType/<%= recref.product_id %>/edit'> Edit</a></td>
         <td><a href='/ProductType/<%= recref.product_id %>/delete' onclick="return confirm('Are you sure you want to delete this record?');">Delete</a></td>

@@ -73,7 +73,7 @@ router.post('/', function(req, res, next) {
 // Route to edit one specific record.
 // ==================================================
 router.get('/:recordid/edit', function(req, res, next) {
-    let query = "SELECT customer_id, firstname, lastname, email, phone, street, city, zipcode, state, zipcode FROM Customer WHERE customer_id = " + req.params.recordid;
+    let query = "SELECT customer_id, firstname, lastname, email, phone, street, city, zipcode, state FROM Customer WHERE customer_id = " + req.params.recordid;
     // execute query
     db.query(query, (err, result) => {
     if (err) {

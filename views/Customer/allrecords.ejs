@@ -22,7 +22,7 @@
         <td><%= recref.zipcode %></td>
         <td><a href='/Customer/<%= recref.customer_id %>/show'> Details</a></td>
         <td><a href='/Customer/<%= recref.customer_id %>/edit'> Edit</a></td>
-        <td><a href='/Cutomer/<%= recref.customer_id %>/delete' onclick="return confirm('Are you sure you want to delete this record?');">Delete</a></td>
+        <td><a href='/Customer/<%= recref.customer_id %>/delete' onclick="return confirm('Are you sure you want to delete this record?');">Delete</a></td>
         </tr>
     <% }); %>
     </table>
